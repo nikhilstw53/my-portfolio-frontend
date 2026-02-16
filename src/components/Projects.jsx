@@ -2,8 +2,8 @@ const projects = [
   {
     title: "Spiner Game",
     image: "/spiner.png",
-    code: "#",
-    live: "#",
+    code: "",
+    live: "",
     tech: ["React", "JavaScript"],
   },
   {

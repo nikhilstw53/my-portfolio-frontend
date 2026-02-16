@@ -18,9 +18,9 @@ export default function Navbar() {
         <button onClick={() => handleScroll("skills")} className="hover:text-cyber">Skills</button>
         <button onClick={() => handleScroll("projects")} className="hover:text-cyber">Projects</button>
         <button
-          onClick={() => handleScroll("contact")}
+          onClick={() => handleScroll("contact")} 
           className="px-4 py-2 bg-cyber text-black rounded-lg hover:scale-105 transition"
-        >
+         >
           Hire Me
         </button>
       </div>

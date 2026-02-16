@@ -1,97 +1,101 @@
-import { FaEnvelope, FaUser, FaPhone, FaPaperPlane } from "react-icons/fa";
+import { useState } from "react";
 
-export default function Contact() {
+function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      // ✅ Use deployed backend URL
+      const BACKEND_URL = "https://portfolio-backend-nine-lake.vercel.app";
+
+      const res = await fetch(`${BACKEND_URL}/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
+  };
+
   return (
-    <section
+    <div
       id="contact"
-      className="py-28 animate-fade flex justify-center"
+      className="min-h-screen flex items-center justify-center bg-black px-4"
     >
-      <div className="w-full max-w-3xl bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur">
-
-        {/* Heading */}
-        <h2 className="text-4xl font-bold text-cyber mb-4 text-center">
-          Hire Me
+      <div className="w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8">
+        <h2 className="text-3xl font-extrabold text-center mb-6 text-purple-400">
+          Contact Me
         </h2>
 
-        <p className="text-gray-400 text-center mb-8">
-          Have a project in mind? Let’s build something amazing together.
-        </p>
-
-        {/* Contact Form */}
-        <form className="space-y-6">
-
-          {/* Name */}
-          <div className="relative">
-            <FaUser className="absolute top-4 left-4 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10
-              rounded-lg outline-none focus:border-cyber transition"
-            />
-          </div>
-
-          {/* Email */}
-          <div className="relative">
-            <FaEnvelope className="absolute top-4 left-4 text-gray-400" />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10
-              rounded-lg outline-none focus:border-cyber transition"
-            />
-          </div>
-
-          {/* Mobile */}
-          <div className="relative">
-            <FaPhone className="absolute top-4 left-4 text-gray-400" />
-            <input
-              type="tel"
-              placeholder="Mobile Number"
-              className="w-full pl-12 pr-4 py-3 bg-black/40 border border-white/10
-              rounded-lg outline-none focus:border-cyber transition"
-            />
-          </div>
-
-          {/* Message */}
-          <textarea
-            rows="4"
-            placeholder="Your Message"
-            className="w-full px-4 py-3 bg-black/40 border border-white/10
-            rounded-lg outline-none focus:border-cyber transition resize-none"
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white"
           />
 
-          {/* Button */}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white"
+          />
+
+          <textarea
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white h-32"
+          />
+
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2
-            px-6 py-3 bg-cyber text-black font-semibold rounded-lg
-            hover:scale-105 transition"
+            disabled={status === "loading"}
+            className="w-full bg-purple-600 py-3 rounded-xl"
           >
-            <FaPaperPlane />
-            Send Message
+            {status === "loading" ? "Sending..." : "Send Message"}
           </button>
         </form>
 
-        {/* Direct Email */}
-        <p className="text-center text-gray-400 mt-6">
-          Or email me directly at{" "}
-          <a
-            href="mailto:nc388782@gmail.com"
-            className="text-cyber hover:underline"
-          >
-            nc388782@gmail.com
-          </a>
-        </p>
+        {status === "success" && (
+          <p className="text-green-400 text-center mt-4">
+            Message sent successfully ✅
+          </p>
+        )}
 
-        {/* Social Links */}
-        <div className="flex justify-center gap-6 mt-6 text-gray-400">
-          <a href="#" className="hover:text-cyber transition">GitHub</a>
-          <a href="#" className="hover:text-cyber transition">LinkedIn</a>
-          <a href="#" className="hover:text-cyber transition">Instagram</a>
-        </div>
-
+        {status === "error" && (
+          <p className="text-red-400 text-center mt-4">
+            Failed to send message ❌
+          </p>
+        )}
       </div>
-    </section>
+    </div>
   );
 }
+
+export default ContactForm;
