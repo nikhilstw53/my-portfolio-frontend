@@ -1,31 +1,31 @@
 const projects = [
   {
-    title: "Spiner Game",
-    image: "/spiner.png",
+    title: "construction website",
+    image: "",
     code: "",
     live: "",
-    tech: ["React", "JavaScript"],
+    tech: ["React.js", "node.js"],
   },
   {
     title: "E-commerce App",
     image: "/website.jpeg",
-    code: "#",
-    live: "#",
-    tech: ["React", "Node.js", "Tailwind"],
+    code: "",
+    live: "https://frontend-e-commerce-eight-chi.vercel.app/",
+    tech: ["React", "Node.js", "express.js"],
   },
   {
     title: "Calculator",
     image: "/calculater.jpeg",
     code: "#",
-    live: "#",
+    live: "https://calculater-with-js.vercel.app/",
     tech: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Weather App",
     image: "/weather.jpeg",
     code: "#",
-    live: "#",
-    tech: ["API", "React"],
+    live: "https://weather-seven-delta.vercel.app/",
+    tech: ["html", "js"],
   },
 ];
 

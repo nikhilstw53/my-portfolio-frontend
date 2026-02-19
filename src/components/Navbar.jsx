@@ -1,29 +1,81 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
-  const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <nav className="fixed top-0 w-full bg-black/70 backdrop-blur z-50
-      flex justify-between items-center px-6 md:px-20 py-4">
+    <>
+      <nav className="navbar">
+        <h1 className="logo">Nikhil.</h1>
 
-      <h1 className="text-2xl font-bold text-cyber">Nikhil.</h1>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/skills">Skills</Link>
+          <Link to="/projects">Projects</Link>
+          <Link to="/contact" className="hire-btn">
+            Hire Me
+          </Link>
+        </div>
+      </nav>
 
-      <div className="flex gap-6 text-sm">
-        <button onClick={() => handleScroll("home")} className="hover:text-cyber">Home</button>
-        <button onClick={() => handleScroll("about")} className="hover:text-cyber">About</button>
-        <button onClick={() => handleScroll("skills")} className="hover:text-cyber">Skills</button>
-        <button onClick={() => handleScroll("projects")} className="hover:text-cyber">Projects</button>
-        <button
-          onClick={() => handleScroll("contact")} 
-          className="px-4 py-2 bg-cyber text-black rounded-lg hover:scale-105 transition"
-         >
-          Hire Me
-        </button>
-      </div>
-    </nav>
+      <style>{`
+        .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(10px);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 80px;
+          z-index: 1000;
+        }
+
+        .logo {
+          font-size: 24px;
+          font-weight: bold;
+          color: #00ffff;
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 24px;
+          font-size: 14px;
+        }
+
+        .nav-links a {
+          color: white;
+          text-decoration: none;
+          transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+          color: #00ffff;
+        }
+
+        .hire-btn {
+          padding: 8px 16px;
+          background: #00ffff;
+          color: black !important;
+          border-radius: 8px;
+          transition: 0.3s;
+        }
+
+        .hire-btn:hover {
+          transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+          .navbar {
+            padding: 16px 30px;
+          }
+
+          .nav-links {
+            gap: 16px;
+            font-size: 12px;
+          }
+        }
+      `}</style>
+    </>
   );
 }
