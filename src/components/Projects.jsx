@@ -3,7 +3,7 @@ const projects = [
     title: "construction website",
     image: "./construction.png",
     live: "https://ksv-construction-website-project-cx.vercel.app/",
-    tech: ["React.js", "node.js"],
+    tech: ["React.js", "node.js","express.js"],
   },
   {
     title: "E-commerce App",
@@ -27,14 +27,14 @@ const projects = [
     title: "MY PORTFOLIO",
     image: "image.png",
     live: "https://my-portfolio-frontend-ruby.vercel.app/",
-    tech: ["React.js", "node.js"],
+    tech: ["React.js", "node.js","express.js"],
   },
   {
     title: "TODO-APP",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1lXY8pD3MKHozJHBitTQ4NZsJPYSQsDby0A&s",
     live: "https://todo-ui-sigma.vercel.app/",
-    tech: ["React.js", "node.js"],
+    tech: ["React.js", ],
   },
 ];
 
