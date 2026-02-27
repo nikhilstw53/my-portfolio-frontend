@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ContactForm.css";
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -11,7 +12,6 @@ function ContactForm() {
     setStatus("loading");
 
     try {
-      // ✅ Use deployed backend URL
       const BACKEND_URL = "https://portfolio-backend-nine-lake.vercel.app";
 
       const res = await fetch(`${BACKEND_URL}/send-email`, {
@@ -37,23 +37,17 @@ function ContactForm() {
   };
 
   return (
-    <div
-      id="contact"
-      className="min-h-screen flex items-center justify-center bg-black px-4"
-    >
-      <div className="w-full max-w-md bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-8">
-        <h2 className="text-3xl font-extrabold text-center mb-6 text-purple-400">
-          Contact Me
-        </h2>
+    <div id="contact" className="contact-wrapper">
+      <div className="contact-card">
+        <h2>Contact Me</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white"
           />
 
           <input
@@ -62,7 +56,6 @@ function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white"
           />
 
           <textarea
@@ -70,28 +63,19 @@ function ContactForm() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-            className="w-full px-5 py-3 rounded-xl bg-gray-900 text-white h-32"
           />
 
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="w-full bg-purple-600 py-3 rounded-xl"
-          >
+          <button type="submit" disabled={status === "loading"}>
             {status === "loading" ? "Sending..." : "Send Message"}
           </button>
         </form>
 
         {status === "success" && (
-          <p className="text-green-400 text-center mt-4">
-            Message sent successfully ✅
-          </p>
+          <p className="success">Message sent successfully ✅</p>
         )}
 
         {status === "error" && (
-          <p className="text-red-400 text-center mt-4">
-            Failed to send message ❌
-          </p>
+          <p className="error">Failed to send message ❌</p>
         )}
       </div>
     </div>

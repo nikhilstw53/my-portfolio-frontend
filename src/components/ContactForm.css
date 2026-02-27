@@ -1,0 +1,94 @@
+/* Full Screen Center Layout */
+.contact-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  padding: 20px;
+}
+
+/* Card */
+.contact-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+/* Heading */
+.contact-card h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #a855f7;
+}
+
+/* Form Inputs */
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: none;
+  background: #111827;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+  box-shadow: 0 0 0 2px #a855f7;
+}
+
+/* Textarea Height */
+.contact-card textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Button */
+.contact-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #9333ea;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-card button:hover {
+  background: #7e22ce;
+  transform: translateY(-2px);
+}
+
+.contact-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success & Error */
+.success {
+  margin-top: 15px;
+  color: #22c55e;
+}
+
+.error {
+  margin-top: 15px;
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 25px;
+  }
+}

@@ -26,9 +26,9 @@ export default function About() {
             </p>
 
             <div className="about-contact">
-              <p>Email: <span>nc388782@gmail.com</span></p>
-              <p>Phone: <span>+919569324843</span></p>
-              <p>Location: <span>Lucknow, India</span></p>
+              <p>Email: <span className="about-span">nc388782@gmail.com</span></p>
+              <p>Phone: <span className="about-span">+919569324843</span></p>
+              <p>Location: <span className="about-span">Lucknow, India</span></p>
             </div>
           </div>
 
@@ -83,11 +83,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* CSS Inside Same File */}
+      {/* Pure CSS */}
       <style>{`
         .about-section {
           padding: 100px 60px;
-          background: #111827;
+          background-color: #111827;
           color: white;
           font-family: Arial, sans-serif;
         }
@@ -132,7 +132,7 @@ export default function About() {
           font-size: 14px;
         }
 
-        .about-contact span {
+        .about-contact .about-span {
           color: #00ffff;
         }
 
@@ -164,10 +164,10 @@ export default function About() {
         }
 
         .skill-card {
-          background: #1f2937;
+          background-color: #1f2937;
           padding: 20px;
           border-radius: 10px;
-          transition: 0.3s ease;
+          transition: transform 0.3s ease;
         }
 
         .skill-card:hover {

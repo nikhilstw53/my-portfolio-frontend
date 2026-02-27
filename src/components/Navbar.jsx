@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function Navbar() {
   return (
     <>
@@ -7,17 +5,21 @@ export default function Navbar() {
         <h1 className="logo">Nikhil.</h1>
 
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/skills">Skills</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/contact" className="hire-btn">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact" className="hire-btn">
             Hire Me
-          </Link>
+          </a>
         </div>
       </nav>
 
       <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+
         .navbar {
           position: fixed;
           top: 0;
@@ -63,17 +65,6 @@ export default function Navbar() {
 
         .hire-btn:hover {
           transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-          .navbar {
-            padding: 16px 30px;
-          }
-
-          .nav-links {
-            gap: 16px;
-            font-size: 12px;
-          }
         }
       `}</style>
     </>
