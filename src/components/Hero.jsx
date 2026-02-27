@@ -12,8 +12,8 @@ export default function Hero() {
       <div className="z-10 animate-slideUp">
         <h1 className="text-5xl font-bold leading-tight">
           <span className="flex items-center gap-3 animate-textGlow text-purple-400">
-            <span>💻</span>
-            Software IT Engineer
+            {/* <span>💻</span>
+            Software IT Engineer */}
           </span>
           <span className="flex items-center gap-3 mt-2 animate-textGlow text-green-400">
             <span>🖥️</span>
