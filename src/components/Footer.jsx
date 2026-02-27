@@ -29,7 +29,7 @@ export default function Footer() {
 
         {/* Social icons (internal navigation) */}
         <div className="flex justify-center gap-6 text-xl mt-4">
-          <Link to="https://github.com/nikhilstw53" className="hover:text-cyber transition">
+          <Link to="github" className="hover:text-cyber transition">
             <FaGithub />
           </Link>
 
