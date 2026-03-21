@@ -2,7 +2,7 @@ const projects = [
   {
     title: "construction website",
     image: "./construction.png",
-    live: "https://ksv-construction-website-project-cx.vercel.app/",
+    live: "https://ksv-frontend.vercel.app/",
     tech: ["React.js", "node.js","express.js"],
   },
   {
